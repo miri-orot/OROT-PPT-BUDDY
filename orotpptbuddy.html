@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OROT PPT BUDDY</title>
+  <!-- Google Fonts: Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #f199aa;
+      --primary-dark: #e27588;
+      --secondary: #333333;
+      --secondary-dark: #222222;
+      --text: #333;
+      --text-light: #666;
+      --bg: #222222;
+      --card-bg: #333333;
+      --white: #fff;
+      --shadow: 0 4px 15px rgba(0,0,0,0.3);
+      --radius: 12px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--white);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      text-align: center;
+      padding: 3rem 0;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      color: var(--white);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .feature {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .feature h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .feature p {
+      color: var(--white);
+    }
+    
+    .steps {
+      counter-reset: step;
+      margin: 2rem 0;
+    }
+    
+    .step {
+      display: flex;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .step-number {
+      background: var(--primary);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-right: 1.5rem;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .top-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: var(--radius);
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 250px; /* 고정 너비로 동일한 버튼 크기 설정 */
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--white);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--secondary-dark);
+    }
+    
+    .btn-gray {
+      background-color: #e0e0e0;
+      color: #333333;
+    }
+    
+    .btn-gray:hover {
+      background-color: #d0d0d0;
+    }
+    
+    .screenshot {
+      max-width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 1.5rem 0;
+    }
+    
+    .warning {
+      background-color: rgba(255, 159, 28, 0.2);
+      border-left: 4px solid var(--primary);
+      padding: 1rem;
+      margin: 1rem 0;
+      color: var(--white);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      header {
+        padding: 2rem 0;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .feature {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>OROT PPT BUDDY</h1>
+      <p>파워포인트 슬라이드를 고품질 JPG 이미지로 간편하게 변환하는 도구</p>
+      
+      <div class="top-buttons">
+        <a href="https://github.com/username/OROT-PPT-BUDDY/releases/download/v1.0.0/OROT-PPT-BUDDY-Setup.exe" class="btn btn-primary">프로그램 다운로드</a>
+        <a href="https://tally.so/r/wAyOzy" class="btn btn-gray">이메일 등록하기</a>
+      </div>
+      <p style="color: var(--white); font-size: 0.9rem; margin-top: 1rem;">* 프로그램 사용을 위해서는 이메일 등록 및 인증이 필요합니다.</p>
+    </header>
+    
+    <section class="card">
+      <h2 class="section-title">프로그램 소개</h2>
+      <p>OROT PPT BUDDY는 파워포인트 프레젠테이션 슬라이드를 고품질 JPG 이미지로 변환해주는 편리한 도구입니다. 복잡한 설정 없이 단 몇 번의 클릭만으로 슬라이드를 이미지로 변환할 수 있어 프레젠테이션을 공유하거나 보관할 때 유용합니다.</p>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🖼️</div>
+          <h3>고품질 이미지 변환</h3>
+          <p>슬라이드를 보이는 그대로 고품질 JPG 이미지로 변환합니다.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔍</div>
+          <h3>슬라이드 범위 선택</h3>
+          <p>전체 슬라이드 또는 특정 슬라이드만 선택하여 변환할 수 있습니다.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>간편한 사용법</h3>
+          <p>직관적인 인터페이스로 누구나 쉽게 사용할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="card">
+      <h2 class="section-title">사용 방법</h2>
+      
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>프로그램 시작 및 인증</h3>
+            <p>프로그램을 실행한 후 '인증하기' 버튼을 클릭하여 이메일 인증을 진행합니다. 등록된 이메일을 입력하고 인증을 완료해야 프로그램을 사용할 수 있습니다.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>PPT 파일 선택</h3>
+            <p>파워포인트 파일을 우클릭하여 '경로로 복사(Ctrl+Shift+C)'를 선택한 후, 프로그램의 '파일 경로를 입력하세요' 필드에 붙여넣기 합니다.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>슬라이드 범위 설정(선택사항)</h3>
+            <p>특정 슬라이드만 변환하고 싶다면 슬라이드 범위를 입력합니다. 예: '1-3,5,7-9'와 같은 형식으로 입력할 수 있습니다. 입력하지 않으면 전체 슬라이드가 처리됩니다.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>JPG로 추출하기</h3>
+            <p>'JPG로 추출하기' 버튼을 클릭하여 변환 작업을 시작합니다. 진행 상황은 실시간 안내 창에서 확인할 수 있습니다.</p>
+          </div>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>결과물 확인</h3>
+            <p>변환이 완료되면 PPT 파일과 같은 위치에 '[파일명]_JPG' 폴더가 생성되며, 이 폴더 안에 각 슬라이드가 이미지로 저장됩니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="warning">
+        <strong>⚠️ 주의:</strong> 슬라이드 영역을 벗어난 요소가 있을 경우 이미지 비율이 찌그러질 수 있습니다.
+      </div>
+    </section>
+    
+    <div class="cta-container" style="display: none;">
+      <a href="https://github.com/username/OROT-PPT-BUDDY/releases/download/v1.0.0/OROT-PPT-BUDDY-Setup.exe" class="btn btn-primary">프로그램 다운로드</a>
+      <a href="https://tally.so/r/wAyOzy" class="btn btn-secondary">이메일 등록하기</a>
+      <p>* 프로그램 사용을 위해서는 이메일 등록 및 인증이 필요합니다.</p>
+    </div>
+    
+    <section class="card">
+      <h2 class="section-title">기술 요구사항</h2>
+      <ul style="list-style-position: inside; padding-left: 1rem;">
+        <li>운영체제: Windows 10 이상</li>
+        <li>Microsoft PowerPoint 2013 이상 설치 필요</li>
+        <li>인터넷 연결 (이메일 인증 시 필요)</li>
+      </ul>
+    </section>
+    
+    <footer>
+      <p>© 2025 OROT PPT BUDDY. 모든 권리 보유.</p>
+    </footer>
+  </div>
+</body>
+</html>
